@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import movies from "./data/movies.json";
 import "./di";
+import { movieService } from "./di";
 
 const Movie = ({ title, year }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const handleLikeClick = () => {
+  const handleLikeClick = async () => {
+    await movieService.likeMovie();
     setIsLiked(!isLiked);
   };
   return (
