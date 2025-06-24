@@ -60,7 +60,7 @@ export const App = () => {
           <div>
             {
               searchedMovies.map((movie)=>{
-                return (<Movie title={movie.title} year={movie.year}/>);
+                return (<Movie key={movie.title} title={movie.title} year={movie.year}/>);
               })
             }
           </div>
