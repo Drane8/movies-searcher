@@ -51,7 +51,7 @@ export const App = () => {
           />
         </div>
 
-        {searchedMovies && searchedMovies.length === 0 && (
+        {searchTerm !== "" && searchedMovies.length === 0 && (
           <div>
             No se encontraron películas
           </div>
