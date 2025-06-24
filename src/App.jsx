@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import movies from "./data/movies.json";
-import { MovieService } from "./core/service/MovieService";
-import { JSONMovieRepository } from "./core/infraestructure/JSONMovieRepository";
+import "./di";
 
 const Movie = ({ title, year }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -25,7 +24,6 @@ const Movie = ({ title, year }) => {
 export const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchedMovies,setSearchedMovies] = useState([]);
-  const movieService = new MovieService(new JSONMovieRepository());
 
   useEffect(()=>{
     const movies = movieService.searchByTitle(searchTerm);
