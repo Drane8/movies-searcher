@@ -1,5 +1,5 @@
 import { Movie } from "./Movie";
 
 export interface MovieRepository {
-  searchByTitle(title: string): Movie | null;
+  searchByTitle(title: string): Movie[];
 }

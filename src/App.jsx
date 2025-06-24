@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import movies from "./data/movies.json";
+import { MovieService } from "./core/service/MovieService";
+import { JSONMovieRepository } from "./core/infraestructure/JSONMovieRepository";
 
 const Movie = ({ title, year }) => {
   return (
@@ -15,7 +17,15 @@ const Movie = ({ title, year }) => {
 
 export const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchedMovies,setSearchedMovies] = useState([]);
+  const movieService = new MovieService(new JSONMovieRepository());
 
+  useEffect(()=>{
+    const movies = movieService.searchByTitle(searchTerm);
+    if(movies) {
+      setSearchedMovies(movies);
+    }
+  },[searchTerm])
   return (
     <div className="App">
       <header className="app-header">
@@ -34,7 +44,20 @@ export const App = () => {
           />
         </div>
 
-        {/* Tu código aquí */}
+        {searchedMovies && searchedMovies.length === 0 && (
+          <div>
+            No se encontraron películas
+          </div>
+        )}
+        {searchedMovies && searchedMovies.length > 0 && (
+          <div>
+            {
+              searchedMovies.map((movie)=>{
+                return (<Movie title={movie.title} year={movie.year}/>);
+              })
+            }
+          </div>
+        )}
 
         <div className="placeholder">
           <p>

@@ -4,18 +4,27 @@ import { JSONMovieRepository } from "../../infraestructure/JSONMovieRepository";
 
 describe("Movie Service",()=>{
     const movieService = new MovieService(new JSONMovieRepository());
-  it("Should find searched movie",()=>{
-    const movie = movieService.searchByTitle("The Shawshank Redemption");
+  it("Should find searched movie by full title",()=>{
+    const movies = movieService.searchByTitle("The Shawshank Redemption");
 
-    expect(movie?.title).toBe("The Shawshank Redemption");
-    expect(movie?.year).toBe(1994);
+    expect(movies[0]?.title).toBe("The Shawshank Redemption");
+    expect(movies[0]?.year).toBe(1994);
+    expect(movies).toHaveLength(1);
+
+  })
+
+  it("Should find searched movie even if the title is not full",()=>{
+    const movies = movieService.searchByTitle("Godfath");
+
+    expect(movies[0]?.title).toBe("The Godfather");
+    expect(movies[0]?.year).toBe(1972);
 
   })
   
-  it("Should return null if not found movie",()=>{
-    const movie = movieService.searchByTitle("Not a movie title");
+  it("Should return empty if not found movie",()=>{
+    const movies = movieService.searchByTitle("Not a movie title");
 
-    expect(movie).toBeNull();
+    expect(movies).toHaveLength(0);
 
   })
 })
