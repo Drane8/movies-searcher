@@ -1,6 +1,6 @@
-import { MovieLikeRepository } from "../domain/MovieLikeRepository";
+import { LikeRepository } from "../../domain/Like/LikeRepository";
 
-export class ApiMovieLikeRepository implements MovieLikeRepository {
+export class ApiLikeRepository implements LikeRepository {
   async likeMovie(): Promise<void> {
     try {
       const response = await fetch(

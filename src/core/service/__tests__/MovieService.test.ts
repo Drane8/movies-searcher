@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { MovieService } from "../MovieService";
-import { JSONMovieRepository } from "../../infraestructure/JSONMovieRepository";
-import { ApiMovieLikeRepository } from "../../infraestructure/ApiMovieLikeRepository";
+import { JSONMovieRepository } from "../../infraestructure/Movie/JSONMovieRepository";
+import { ApiLikeRepository } from "../../infraestructure/Like/ApiLikeRepository";
 
 describe("Movie Service",()=>{
-    const movieService = new MovieService(new JSONMovieRepository(), new ApiMovieLikeRepository());
+    const movieService = new MovieService(new JSONMovieRepository(), new ApiLikeRepository());
   it("Should find searched movie by full title",()=>{
     const movies = movieService.searchByTitle("The Shawshank Redemption");
 

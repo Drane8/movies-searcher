@@ -1,6 +1,6 @@
-import { Movie } from "../domain/Movie";
-import { MovieRepository } from "../domain/MovieRepository";
-import moviesJSON from "../../data/movies.json";
+import { Movie } from "../../domain/Movie/Movie";
+import { MovieRepository } from "../../domain/Movie/MovieRepository";
+import moviesJSON from "../../../data/movies.json";
 
 export class JSONMovieRepository implements MovieRepository {
   searchByTitle(title: string): Movie[] {

@@ -1,11 +1,11 @@
-import { Movie } from "../domain/Movie";
-import { MovieLikeRepository } from "../domain/MovieLikeRepository";
-import { MovieRepository } from "../domain/MovieRepository";
+import { Movie } from "../domain/Movie/Movie";
+import { LikeRepository } from "../domain/Like/LikeRepository";
+import { MovieRepository } from "../domain/Movie/MovieRepository";
 
 export class MovieService {
   constructor(
     private movieRepository: MovieRepository,
-    private movieLikeRepository: MovieLikeRepository
+    private movieLikeRepository: LikeRepository
   ) {}
 
   public searchByTitle(title: string): Movie[] {
