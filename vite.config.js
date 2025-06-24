@@ -11,7 +11,8 @@ export default defineConfig({
     css: true,
     include: [
       'src/**/*.test.ts',
-      'src/**/*.test.tsx'
+      'src/**/*.test.tsx',
+      'src/**/*.test.jsx'
     ]
   },
 });
