@@ -13,6 +13,6 @@ export class MovieService {
   }
 
   public async likeMovie(): Promise<void> {
-    this.movieLikeRepository.likeMove();
+    this.movieLikeRepository.likeMovie();
   }
 }

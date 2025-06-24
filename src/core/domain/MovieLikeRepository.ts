@@ -1,3 +1,3 @@
 export interface MovieLikeRepository{
-    likeMove():Promise<void>;
+    likeMovie():Promise<void>;
 }

@@ -1,7 +1,7 @@
 import { MovieLikeRepository } from "../domain/MovieLikeRepository";
 
 export class ApiMovieLikeRepository implements MovieLikeRepository {
-  async likeMove(): Promise<void> {
+  async likeMovie(): Promise<void> {
     try {
       const response = await fetch(
         "https://movies-backend-biko2.vercel.app/api/like?token=6293",
